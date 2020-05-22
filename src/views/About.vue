@@ -3,20 +3,24 @@
     :markdown="markdown"
     @title="setTitle"
     keyboard-ctrl
-    url-hash-ctrl
     auto-font-size
-    auto-blank-target
     supportPreview
   ></mark-display>
 </template>
  
 <script>
 import MarkDisplay from "vue-mark-display";
- 
-const markdown = `# Hello World
+
+const markdown = `
+# Hello World
+
+---
+
+#This is Vue Mark Display
+
 ----
-This is Vue Mark Display`;
- 
+#This is Vue Mark Display`;
+
 export default {
   components: { MarkDisplay },
   data() {
