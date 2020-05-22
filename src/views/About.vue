@@ -1,24 +1,38 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <div >
-      {{html}}
-    </div>
-  </div>
+  <mark-display
+    :markdown="markdown"
+    @title="setTitle"
+    keyboard-ctrl
+    url-hash-ctrl
+    auto-font-size
+    auto-blank-target
+    supportPreview
+  ></mark-display>
 </template>
+ 
 <script>
-import { get } from '@/api'
+import MarkDisplay from "vue-mark-display";
+ 
+const markdown = `# Hello World
+----
+This is Vue Mark Display`;
+ 
 export default {
-  data(){
-    return {
-      html: ''
-    }
+  components: { MarkDisplay },
+  data() {
+    return { markdown };
   },
-  created() {
-    get('').then(res => {
-      console.log(res.data)
-      this.html = res.data
-    })
+  methods: {
+    setTitle({ title }) {
+      document.title = title;
+    }
   }
-}
+};
 </script>
+ 
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+}
+</style>
