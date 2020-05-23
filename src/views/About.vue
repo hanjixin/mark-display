@@ -14,6 +14,8 @@ import MarkDisplay from "vue-mark-display";
 const markdown = `
 # Hello World
 
+<!-- style: background: #4fc08d; color: white; -->
+
 ---
 
 #This is Vue Mark Display
