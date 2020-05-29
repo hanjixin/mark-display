@@ -280,4 +280,89 @@ Angle：聚光灯着色的角度，用弧度作为单位，这个角度是和光
 exponent：光源模型中，衰减的一个参数，越大衰减约快。
 </pre>
 <!-- style: background: #4fc08d; color: white; text-algin: left; -->
+
+------
+
+
+------
+
+# 网格对象 MESH
+
+<pre > 
+创建一个网格需要一个几何体，以及一个或多个材质。当网格创建好之后，我们就可以将它添加到场景中并进行渲染。
+网格对象提供了几个属性和方法用于改变它在场景中的位置和显示效果。 如下：
+
+<img src='https://img.jbzj.com/file_images/article/201709/2017927102810198.jpg?201782710296' />
+
+### 构造器
+> Mesh( geometry : Geometry, material : Material )
+### 示例代码
+var geometry = new THREE.BoxBufferGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+var mesh = new THREE.Mesh( geometry, material );
+scene.add( mesh );
+</pre>
+<!-- style: background: #4fc08d; color: white; text-algin: left; -->
+
+------
+
+# 材质 Material
+
+<pre> 
+
+材质是啥子（四川话），材质就是物体的质地。我们可以用撤分文字的方法来理解。材质就是材料和质感的完美结合。
+如果你还不理解，那么看看下面我引用的这段话：
+在渲染程序中，它是表面各可视属性的结合，这些可视属性是指表面的色彩、纹理、光滑度、透明度、反射率、折射率、发光度等。
+正是有了这些属性，才能让我们识别三维中的模型是什么做成的，也正是有了这些属性，我们计算机三维的虚拟世界才会和真实世界一样缤纷多彩。
+
+这就是材质的真相吗？答案是否定的。不要奇怪，我们必须仔细分析产生不同材质的原因，才能让我们更好的把握质感。那么，材质的真相到底是什么呢？
+仍然是光，离开光材质是无法体现的。举例来说，借助夜晚微弱的天空光，
+我们往往很难分辨物体的材质，因为他们很多都表现出黑色，我们难以区分是铝合金，还是塑料的。
+而在正常的照明条件下，则很容易分辨。另外，在彩色光源的照射下，我们也很难分辨物体表面的颜色，在白色光源的照射下则很容易。这种情况表明了物体的材质与光的微妙关系。
+最常见的材质之一就是Lambert材质，这是在灰暗的或不光滑的表面产生均匀散射而形成的材质类型。比如一张纸就是Lambert表面。 
+首先它粗糙不均匀，不会产生镜面效果。我们在阅读书籍的时候，没有发现书上一处亮，一处不亮吧，它非常均匀，这就是兰伯特材质。
+
+有的朋友觉得纸不粗糙啊，你怎么说它粗糙吗？人的肉眼是不好分辨出来，它粗不粗糙的。
+
+Lambert材质表面会在所有方向上均匀地散射灯光，这就会使颜色看上去比较均匀。想想一张纸，无论什么颜色，是不是纸的各个部分颜色都比较均匀呢。
+<img src="http://www.hewebgl.com/attached/image/20130515/20130515170358_794.jpg"/>
+Lambert材质会受环境光的影响，呈现环境光的颜色，与材质本身颜色关系不大。
+
+
+
+</pre>
+<!-- style: background: #4fc08d; color: white; text-algin: left; -->
+
+
+------
+# 几何体 Geometry
+
+<pre>
+<h3> 基类 BufferGeometry </h4>
+构造器
+BoxBufferGeometry(width : Float, height : Float, depth : Float, widthSegments : Integer, heightSegments : Integer, depthSegments : Integer)
+width — X轴上面的宽度，默认值为1。
+height — Y轴上面的高度，默认值为1。
+depth — Z轴上面的深度，默认值为1。
+widthSegments — （可选）宽度的分段数，默认值是1。
+heightSegments — （可选）宽度的分段数，默认值是1。
+depthSegments — （可选）宽度的分段数，默认值是1。
+
+常见
+文本几何体（TextGeometry）
+球形几何体 (SphereGeometry)
+立方几何体（BoxGeometry）
+平面几何体（PlaneGeometry）
+圆环几何体（RingGeometry）
+网格几何体（WireframeGeometry）
+</pre>
+
+
+
+<!-- style: background: #4fc08d; color: white; text-algin: left; -->
+
+------
+
+# 谢谢观看
+### 讲述人-Hank
 `
